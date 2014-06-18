@@ -51,11 +51,11 @@
 
 - (void)setBackgroundLayer
 {
-    CGRect insetFrame = CGRectInset(self.bounds, 5, 5);
+    CGRect insetFrame = CGRectInset(self.bounds, 2.5, 2.5);
     CALayer *layer = [CALayer layer];
     layer.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1].CGColor;
     layer.frame = insetFrame;
-    layer.cornerRadius = 5;
+    layer.cornerRadius = 10;
     
     [self.layer insertSublayer:layer atIndex:0];
 }
@@ -76,14 +76,14 @@
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     if (orientation == UIDeviceOrientationPortrait) {
         self.bottomConstrainRemaining.constant = 20;
-        self.trailingConstrainRemaining.constant = 117;
+        self.trailingConstrainRemaining.constant = 128;
     } else if (orientation == UIDeviceOrientationLandscapeRight || orientation == UIDeviceOrientationLandscapeLeft) {
         self.bottomConstrainRemaining.constant = 20 + self.bounds.size.height / 4;
-        self.trailingConstrainRemaining.constant = 117 - 100;
+        self.trailingConstrainRemaining.constant = 128 - 100;
     }
     
     CALayer *layer = [self.layer.sublayers objectAtIndex:0];
-    layer.frame = CGRectInset(self.bounds, 5, 5);
+    layer.frame = CGRectInset(self.bounds, 2.5, 2.5);
 }
 
 @end
