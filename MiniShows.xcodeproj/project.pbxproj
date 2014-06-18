@@ -24,6 +24,7 @@
 		3F2477C81951CE8E006787A5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2477C71951CE8E006787A5 /* TableViewController.m */; };
 		3F2477CB1951CEBE006787A5 /* ShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2477CA1951CEBE006787A5 /* ShowTableViewCell.m */; };
 		3F2477CE1951D750006787A5 /* ShowDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2477CD1951D750006787A5 /* ShowDetailViewController.m */; };
+		3FD362921951F0C1009B0BD6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD362911951F0C1009B0BD6 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		3F2477CA1951CEBE006787A5 /* ShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowTableViewCell.m; sourceTree = "<group>"; };
 		3F2477CC1951D750006787A5 /* ShowDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDetailViewController.h; sourceTree = "<group>"; };
 		3F2477CD1951D750006787A5 /* ShowDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailViewController.m; sourceTree = "<group>"; };
+		3FD362901951F0C1009B0BD6 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		3FD362911951F0C1009B0BD6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 				3F2477CA1951CEBE006787A5 /* ShowTableViewCell.m */,
 				3F2477CC1951D750006787A5 /* ShowDetailViewController.h */,
 				3F2477CD1951D750006787A5 /* ShowDetailViewController.m */,
+				3FD362901951F0C1009B0BD6 /* SettingsViewController.h */,
+				3FD362911951F0C1009B0BD6 /* SettingsViewController.m */,
 			);
 			path = MiniShows;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				3F2477C81951CE8E006787A5 /* TableViewController.m in Sources */,
 				3F2477CE1951D750006787A5 /* ShowDetailViewController.m in Sources */,
 				3F2477CB1951CEBE006787A5 /* ShowTableViewCell.m in Sources */,
+				3FD362921951F0C1009B0BD6 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +480,7 @@
 				3F2477C21951CE5D006787A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F2477C31951CE5D006787A5 /* Build configuration list for PBXNativeTarget "MiniShowsTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +489,7 @@
 				3F2477C51951CE5D006787A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
