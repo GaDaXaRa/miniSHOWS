@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *showSummaryView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstrainSummary;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingConstrainSummary;
+@property (weak, nonatomic) IBOutlet UIToolbar *showToolbar;
 
 @end
 
@@ -61,12 +62,14 @@
 - (void)setLandscapeConstrains {
     self.topConstrainSummary.constant = 0;
     self.leadingConstrainSummary.constant = self.showImageView.frame.size.width;
+    [self.showSummaryView setContentInset:UIEdgeInsetsZero];
     [self.showSummaryView scrollRangeToVisible:NSMakeRange(0, 0)];
 }
 
 - (void)setPortraitConstrains {
-    self.topConstrainSummary.constant = 212;
+    self.topConstrainSummary.constant = self.showImageView.frame.size.height;
     self.leadingConstrainSummary.constant = 0;
+    [self.showSummaryView setContentInset:UIEdgeInsetsMake(self.showToolbar.bounds.size.height, 0, 0, 0)];
     [self.showSummaryView scrollRangeToVisible:NSMakeRange(0, 0)];
 }
 

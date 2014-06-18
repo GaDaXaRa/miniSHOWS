@@ -163,6 +163,7 @@
                         <outlet property="leadingConstrainSummary" destination="LKs-pH-GFn" id="Jo7-6h-0YN"/>
                         <outlet property="showImageView" destination="nxc-HG-sEF" id="Mm8-gR-syW"/>
                         <outlet property="showSummaryView" destination="AeC-mw-hAQ" id="FPp-Rd-uCy"/>
+                        <outlet property="showToolbar" destination="tAe-pv-eOs" id="cJJ-rt-y3b"/>
                         <outlet property="topConstrainSummary" destination="yPI-J0-8bh" id="PvL-Yy-o4D"/>
                     </connections>
                 </viewController>
