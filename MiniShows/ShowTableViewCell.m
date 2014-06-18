@@ -46,7 +46,6 @@
     self.showImage.layer.cornerRadius = self.showImage.frame.size.width/2;
     self.showImage.clipsToBounds = YES;
     
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

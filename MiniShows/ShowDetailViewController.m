@@ -7,6 +7,7 @@
 //
 
 #import "ShowDetailViewController.h"
+#import "TableViewController.h"
 
 @interface ShowDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *showImageView;
@@ -32,7 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    if (orientation == UIDeviceOrientationPortrait) {
+    if (orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationUnknown) {
         [self setPortraitConstrains];
     } else {
         [self setLandscapeConstrains];
@@ -40,6 +41,13 @@
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    if (UIInterfaceOrientationIsPortrait(fromInterfaceOrientation)) {
+        [self setPortraitConstrains];
+    } else {
+        [self setLandscapeConstrains];
+    }
+    
+    
     if (self.view.frame.size.height > self.view.frame.size.width) {
         [self setPortraitConstrains];
     } else {
@@ -55,6 +63,7 @@
 
 - (void)setPortraitConstrains {
     self.topConstrainSummary.constant = 212;
+    NSLog(@"%f",self.showSummaryView.frame.size.height);
     self.leadingConstrainSummary.constant = 0;
     [self.showSummaryView scrollRangeToVisible:NSMakeRange(0, 0)];
 }

@@ -8,6 +8,7 @@
 
 #import "TableViewController.h"
 #import "ShowTableViewCell.h"
+#import "ShowDetailViewController.h"
 
 @interface TableViewController ()
 
@@ -55,7 +56,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
     return 2;
 }
 
@@ -70,6 +70,10 @@
     [cell redrawShows];
     
     return cell;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
 }
 
 @end
