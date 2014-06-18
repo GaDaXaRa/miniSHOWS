@@ -40,13 +40,18 @@
     }
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    if (UIInterfaceOrientationIsPortrait(fromInterfaceOrientation)) {
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    if (orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationUnknown) {
         [self setPortraitConstrains];
     } else {
         [self setLandscapeConstrains];
     }
-    
+    [self.view layoutSubviews];
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     
     if (self.view.frame.size.height > self.view.frame.size.width) {
         [self setPortraitConstrains];
