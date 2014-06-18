@@ -42,17 +42,15 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    if (orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationUnknown) {
-        [self setPortraitConstrains];
-    } else {
-        [self setLandscapeConstrains];
-    }
+    [self setConstrainsByFrameSize];
     [self.view layoutSubviews];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    
+    [self setConstrainsByFrameSize];    
+}
+
+- (void)setConstrainsByFrameSize {
     if (self.view.frame.size.height > self.view.frame.size.width) {
         [self setPortraitConstrains];
     } else {
@@ -68,7 +66,6 @@
 
 - (void)setPortraitConstrains {
     self.topConstrainSummary.constant = 212;
-    NSLog(@"%f",self.showSummaryView.frame.size.height);
     self.leadingConstrainSummary.constant = 0;
     [self.showSummaryView scrollRangeToVisible:NSMakeRange(0, 0)];
 }
