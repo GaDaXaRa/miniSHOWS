@@ -32,20 +32,11 @@
     return self;
 }
 
+
 - (void)awakeFromNib
 {
-    self.clipsToBounds = YES;
-    self.frame = CGRectInset(self.bounds, 20, 20);
-    
-    self.layer.cornerRadius = 20;
-    
-    
-    UIImage *image = [UIImage imageNamed:@"Best-script"];
-    self.showImage.image = image;
-    
-    self.showImage.layer.cornerRadius = self.showImage.frame.size.width/2;
-    self.showImage.clipsToBounds = YES;
-    
+    [self setBackgroundLayer];
+    [self setShowImage];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -55,18 +46,44 @@
     // Configure the view for the selected state
 }
 
+#pragma mark -
+#pragma mark Helping Methods
+
+- (void)setBackgroundLayer
+{
+    CGRect insetFrame = CGRectInset(self.bounds, 5, 5);
+    CALayer *layer = [CALayer layer];
+    layer.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1].CGColor;
+    layer.frame = insetFrame;
+    layer.cornerRadius = 5;
+    
+    [self.layer insertSublayer:layer atIndex:0];
+}
+
+- (void)setShowImage
+{
+    UIImage *image = [UIImage imageNamed:@"Best-script"];
+    self.showImage.image = image;
+    
+    self.showImage.layer.cornerRadius = self.showImage.frame.size.width/2;
+    self.showImage.clipsToBounds = YES;
+}
 
 #pragma mark -
 #pragma mark - Public Methods
+
 - (void) redrawShows{
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     if (orientation == UIDeviceOrientationPortrait) {
         self.bottomConstrainRemaining.constant = 20;
         self.trailingConstrainRemaining.constant = 117;
     } else if (orientation == UIDeviceOrientationLandscapeRight || orientation == UIDeviceOrientationLandscapeLeft) {
-        self.bottomConstrainRemaining.constant = 20 + 39;
-        self.trailingConstrainRemaining.constant = 117 - 97;
+        self.bottomConstrainRemaining.constant = 20 + self.bounds.size.height / 4;
+        self.trailingConstrainRemaining.constant = 117 - 100;
     }
+    
+    CALayer *layer = [self.layer.sublayers objectAtIndex:0];
+    layer.frame = CGRectInset(self.bounds, 5, 5);
 }
 
 @end
