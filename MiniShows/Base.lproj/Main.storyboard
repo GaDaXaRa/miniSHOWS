@@ -14,11 +14,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showCell" rowHeight="120" id="HyU-of-Asa" customClass="ShowTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showCell" rowHeight="120" id="HyU-of-Asa" customClass="ShowTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HyU-of-Asa" id="9JQ-bq-p0y">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7HD-OV-aKG">
@@ -31,21 +31,24 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2A-jj-kkg">
-                                            <rect key="frame" x="128" y="20" width="159" height="20"/>
+                                            <rect key="frame" x="128" y="20" width="192" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yC3-8s-eKh">
-                                            <rect key="frame" x="128" y="35" width="159" height="17"/>
+                                            <rect key="frame" x="128" y="39" width="192" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epQ-SR-lbg">
-                                            <rect key="frame" x="128" y="97" width="31" height="15"/>
+                                            <rect key="frame" x="128" y="97" width="77" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="77" id="ldu-0U-WfB"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -54,20 +57,20 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="yC3-8s-eKh" secondAttribute="trailing" id="3K7-dI-DJN"/>
-                                        <constraint firstAttribute="bottom" secondItem="epQ-SR-lbg" secondAttribute="bottom" constant="8" id="7Tm-jO-MVm"/>
+                                        <constraint firstAttribute="bottom" secondItem="epQ-SR-lbg" secondAttribute="bottom" constant="8" id="7pI-uL-K4G"/>
                                         <constraint firstAttribute="centerY" secondItem="7HD-OV-aKG" secondAttribute="centerY" constant="-0.5" id="Eu3-d8-GxK"/>
                                         <constraint firstAttribute="trailing" secondItem="U2A-jj-kkg" secondAttribute="trailing" id="F0x-Lv-EXV"/>
                                         <constraint firstItem="U2A-jj-kkg" firstAttribute="leading" secondItem="7HD-OV-aKG" secondAttribute="trailing" constant="13" id="X9f-Mv-U10"/>
                                         <constraint firstItem="7HD-OV-aKG" firstAttribute="leading" secondItem="9JQ-bq-p0y" secondAttribute="leading" constant="15" id="XA4-Rk-20h"/>
                                         <constraint firstItem="U2A-jj-kkg" firstAttribute="top" secondItem="9JQ-bq-p0y" secondAttribute="top" constant="20" id="brR-Gz-nGJ"/>
-                                        <constraint firstAttribute="trailing" secondItem="epQ-SR-lbg" secondAttribute="trailing" constant="128" id="lRl-6P-vm2"/>
+                                        <constraint firstAttribute="trailing" secondItem="epQ-SR-lbg" secondAttribute="trailing" constant="115" id="lRl-6P-vm2"/>
                                         <constraint firstItem="yC3-8s-eKh" firstAttribute="top" secondItem="U2A-jj-kkg" secondAttribute="bottom" constant="-5" id="ld6-l3-L91"/>
                                         <constraint firstItem="yC3-8s-eKh" firstAttribute="leading" secondItem="7HD-OV-aKG" secondAttribute="trailing" constant="13" id="qzR-iF-uOd"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="bottomConstrainRemaining" destination="7Tm-jO-MVm" id="PGw-Tk-Se8"/>
+                                    <outlet property="bottomConstrainRemaining" destination="7pI-uL-K4G" id="gYZ-h1-V0q"/>
                                     <outlet property="episodesRemaining" destination="epQ-SR-lbg" id="Zg5-YV-Eww"/>
                                     <outlet property="showDescription" destination="yC3-8s-eKh" id="2Dx-VX-rjJ"/>
                                     <outlet property="showImage" destination="7HD-OV-aKG" id="bcc-kI-8AB"/>

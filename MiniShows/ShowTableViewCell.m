@@ -51,11 +51,9 @@
 
 - (void)setBackgroundLayer
 {
-    CGRect insetFrame = CGRectInset(self.bounds, 2.5, 2.5);
     CALayer *layer = [CALayer layer];
     layer.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1].CGColor;
-    layer.frame = insetFrame;
-    layer.cornerRadius = 10;
+    layer.cornerRadius = 20;
     
     [self.layer insertSublayer:layer atIndex:0];
 }
@@ -73,17 +71,47 @@
 #pragma mark - Public Methods
 
 - (void) redrawShows{
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    if (orientation == UIDeviceOrientationPortrait) {
-        self.bottomConstrainRemaining.constant = 20;
-        self.trailingConstrainRemaining.constant = 128;
-    } else if (orientation == UIDeviceOrientationLandscapeRight || orientation == UIDeviceOrientationLandscapeLeft) {
-        self.bottomConstrainRemaining.constant = 20 + self.bounds.size.height / 4;
-        self.trailingConstrainRemaining.constant = 128 - 100;
-    }
     
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];    
+    if (orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationUnknown) {
+        [self setPortraitSettings];
+    } else if (orientation == UIDeviceOrientationLandscapeRight || orientation == UIDeviceOrientationLandscapeLeft) {
+        [self setLandscapeSettings];
+    }
+}
+
+- (void)setPortraitSettings {
     CALayer *layer = [self.layer.sublayers objectAtIndex:0];
-    layer.frame = CGRectInset(self.bounds, 2.5, 2.5);
+    layer.frame = CGRectInset(self.bounds, 5, 2.5);
+    [self setPortraitConstrains];
+    [self setPortraitFonts];
+}
+
+- (void)setLandscapeSettings {
+    CALayer *layer = [self.layer.sublayers objectAtIndex:0];
+    layer.frame = CGRectInset(self.bounds, 10, 5);
+    [self setLandscapeConstrains];
+    [self setLandscapeFonts];
+}
+
+- (void)setPortraitConstrains {
+    self.bottomConstrainRemaining.constant = 8;
+    self.trailingConstrainRemaining.constant = 115;
+}
+
+- (void)setPortraitFonts {
+    self.showTitle.font = [UIFont systemFontOfSize:20];
+    self.showDescription.font = [UIFont systemFontOfSize:16];
+}
+
+- (void)setLandscapeConstrains {
+    self.bottomConstrainRemaining.constant = self.bounds.size.height / 2 - 7;
+    self.trailingConstrainRemaining.constant = 0;
+}
+
+- (void)setLandscapeFonts {
+    self.showTitle.font = [UIFont systemFontOfSize:32];
+    self.showDescription.font = [UIFont systemFontOfSize:24];
 }
 
 @end
