@@ -42,8 +42,21 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
+}
+
+#pragma mark -
+#pragma mark - Public Methods
+
+- (void) redrawShows{
+    
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    if (orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationUnknown) {
+        [self setPortraitSettings];
+    } else if (orientation == UIDeviceOrientationLandscapeRight || orientation == UIDeviceOrientationLandscapeLeft) {
+        [self setLandscapeSettings];
+    }
 }
 
 #pragma mark -
@@ -67,36 +80,32 @@
     self.showImage.clipsToBounds = YES;
 }
 
-#pragma mark -
-#pragma mark - Public Methods
-
-- (void) redrawShows{
-    
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];    
-    if (orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationUnknown) {
-        [self setPortraitSettings];
-    } else if (orientation == UIDeviceOrientationLandscapeRight || orientation == UIDeviceOrientationLandscapeLeft) {
-        [self setLandscapeSettings];
-    }
-}
-
 - (void)setPortraitSettings {
-    CALayer *layer = [self.layer.sublayers objectAtIndex:0];
-    layer.frame = CGRectInset(self.bounds, 5, 2.5);
+    [self setPortraitLayer];
     [self setPortraitConstrains];
     [self setPortraitFonts];
 }
 
 - (void)setLandscapeSettings {
-    CALayer *layer = [self.layer.sublayers objectAtIndex:0];
-    layer.frame = CGRectInset(self.bounds, 10, 5);
+    [self setLandscapeLayer];
     [self setLandscapeConstrains];
     [self setLandscapeFonts];
 }
 
-- (void)setPortraitConstrains {
-    self.bottomConstrainRemaining.constant = 8;
-    self.trailingConstrainRemaining.constant = 115;
+- (void)setLandscapeLayer {
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:0.1];
+    CALayer *layer = [self.layer.sublayers objectAtIndex:0];
+    layer.frame = CGRectInset(self.bounds, 10, 5);
+    [CATransaction commit];
+}
+
+- (void)setPortraitLayer {
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:0.1];
+    CALayer *layer = [self.layer.sublayers objectAtIndex:0];
+    layer.frame = CGRectInset(self.bounds, 5, 2.5);
+    [CATransaction commit];
 }
 
 - (void)setPortraitFonts {
@@ -104,14 +113,19 @@
     self.showDescription.font = [UIFont systemFontOfSize:16];
 }
 
-- (void)setLandscapeConstrains {
-    self.bottomConstrainRemaining.constant = self.bounds.size.height / 2 - 7;
-    self.trailingConstrainRemaining.constant = 0;
-}
-
 - (void)setLandscapeFonts {
     self.showTitle.font = [UIFont systemFontOfSize:32];
     self.showDescription.font = [UIFont systemFontOfSize:24];
+}
+
+- (void)setPortraitConstrains {
+    self.bottomConstrainRemaining.constant = 8;
+    self.trailingConstrainRemaining.constant = 115;
+}
+
+- (void)setLandscapeConstrains {
+    self.bottomConstrainRemaining.constant = self.bounds.size.height / 2 - 7;
+    self.trailingConstrainRemaining.constant = 0;
 }
 
 @end
