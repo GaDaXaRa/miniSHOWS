@@ -10,5 +10,10 @@
 
 @interface ShowTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSString *description;
+@property (strong, nonatomic) UIImage *showImage;
+
 - (void) redrawShows;
+
 @end

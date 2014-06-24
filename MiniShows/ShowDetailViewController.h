@@ -10,4 +10,7 @@
 
 @interface ShowDetailViewController : UIViewController
 
+@property (strong, nonatomic)NSString *showSummary;
+@property (strong, nonatomic)UIImage *showImage;
+
 @end

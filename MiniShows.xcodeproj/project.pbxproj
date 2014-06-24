@@ -14,7 +14,6 @@
 		3F24779E1951CE5D006787A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F24779D1951CE5D006787A5 /* main.m */; };
 		3F2477A21951CE5D006787A5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2477A11951CE5D006787A5 /* AppDelegate.m */; };
 		3F2477A51951CE5D006787A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F2477A31951CE5D006787A5 /* Main.storyboard */; };
-		3F2477A81951CE5D006787A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2477A71951CE5D006787A5 /* ViewController.m */; };
 		3F2477AA1951CE5D006787A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F2477A91951CE5D006787A5 /* Images.xcassets */; };
 		3F2477B11951CE5D006787A5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2477B01951CE5D006787A5 /* XCTest.framework */; };
 		3F2477B21951CE5D006787A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2477911951CE5D006787A5 /* Foundation.framework */; };
@@ -25,6 +24,7 @@
 		3F2477CB1951CEBE006787A5 /* ShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2477CA1951CEBE006787A5 /* ShowTableViewCell.m */; };
 		3F2477CE1951D750006787A5 /* ShowDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2477CD1951D750006787A5 /* ShowDetailViewController.m */; };
 		3FD362921951F0C1009B0BD6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD362911951F0C1009B0BD6 /* SettingsViewController.m */; };
+		3FE97FE41958286F0085D5AA /* TVShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE97FE31958286F0085D5AA /* TVShow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,6 @@
 		3F2477A01951CE5D006787A5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3F2477A11951CE5D006787A5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3F2477A41951CE5D006787A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3F2477A61951CE5D006787A5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3F2477A71951CE5D006787A5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3F2477A91951CE5D006787A5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3F2477AF1951CE5D006787A5 /* MiniShowsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniShowsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2477B01951CE5D006787A5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -65,6 +63,8 @@
 		3F2477CD1951D750006787A5 /* ShowDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailViewController.m; sourceTree = "<group>"; };
 		3FD362901951F0C1009B0BD6 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		3FD362911951F0C1009B0BD6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		3FE97FE21958286F0085D5AA /* TVShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVShow.h; sourceTree = "<group>"; };
+		3FE97FE31958286F0085D5AA /* TVShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVShow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,21 +124,12 @@
 		3F2477971951CE5D006787A5 /* MiniShows */ = {
 			isa = PBXGroup;
 			children = (
-				3F2477A01951CE5D006787A5 /* AppDelegate.h */,
-				3F2477A11951CE5D006787A5 /* AppDelegate.m */,
+				3FE97FE1195828540085D5AA /* Model */,
+				3FE97FE61958A4E80085D5AA /* View */,
+				3FE97FE51958A4BF0085D5AA /* Controller */,
 				3F2477A31951CE5D006787A5 /* Main.storyboard */,
-				3F2477A61951CE5D006787A5 /* ViewController.h */,
-				3F2477A71951CE5D006787A5 /* ViewController.m */,
 				3F2477A91951CE5D006787A5 /* Images.xcassets */,
 				3F2477981951CE5D006787A5 /* Supporting Files */,
-				3F2477C61951CE8E006787A5 /* TableViewController.h */,
-				3F2477C71951CE8E006787A5 /* TableViewController.m */,
-				3F2477C91951CEBE006787A5 /* ShowTableViewCell.h */,
-				3F2477CA1951CEBE006787A5 /* ShowTableViewCell.m */,
-				3F2477CC1951D750006787A5 /* ShowDetailViewController.h */,
-				3F2477CD1951D750006787A5 /* ShowDetailViewController.m */,
-				3FD362901951F0C1009B0BD6 /* SettingsViewController.h */,
-				3FD362911951F0C1009B0BD6 /* SettingsViewController.m */,
 			);
 			path = MiniShows;
 			sourceTree = "<group>";
@@ -146,6 +137,8 @@
 		3F2477981951CE5D006787A5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3F2477A01951CE5D006787A5 /* AppDelegate.h */,
+				3F2477A11951CE5D006787A5 /* AppDelegate.m */,
 				3F2477991951CE5D006787A5 /* MiniShows-Info.plist */,
 				3F24779A1951CE5D006787A5 /* InfoPlist.strings */,
 				3F24779D1951CE5D006787A5 /* main.m */,
@@ -170,6 +163,37 @@
 				3F2477B91951CE5D006787A5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3FE97FE1195828540085D5AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3FE97FE21958286F0085D5AA /* TVShow.h */,
+				3FE97FE31958286F0085D5AA /* TVShow.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3FE97FE51958A4BF0085D5AA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F2477C61951CE8E006787A5 /* TableViewController.h */,
+				3F2477C71951CE8E006787A5 /* TableViewController.m */,
+				3F2477CC1951D750006787A5 /* ShowDetailViewController.h */,
+				3F2477CD1951D750006787A5 /* ShowDetailViewController.m */,
+				3FD362901951F0C1009B0BD6 /* SettingsViewController.h */,
+				3FD362911951F0C1009B0BD6 /* SettingsViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		3FE97FE61958A4E80085D5AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F2477C91951CEBE006787A5 /* ShowTableViewCell.h */,
+				3F2477CA1951CEBE006787A5 /* ShowTableViewCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,12 +293,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F2477A81951CE5D006787A5 /* ViewController.m in Sources */,
 				3F2477A21951CE5D006787A5 /* AppDelegate.m in Sources */,
 				3F24779E1951CE5D006787A5 /* main.m in Sources */,
 				3F2477C81951CE8E006787A5 /* TableViewController.m in Sources */,
 				3F2477CE1951D750006787A5 /* ShowDetailViewController.m in Sources */,
 				3F2477CB1951CEBE006787A5 /* ShowTableViewCell.m in Sources */,
+				3FE97FE41958286F0085D5AA /* TVShow.m in Sources */,
 				3FD362921951F0C1009B0BD6 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

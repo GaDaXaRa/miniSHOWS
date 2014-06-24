@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *showTitle;
 @property (weak, nonatomic) IBOutlet UILabel *showDescription;
 @property (weak, nonatomic) IBOutlet UILabel *episodesRemaining;
-@property (weak, nonatomic) IBOutlet UIImageView *showImage;
+@property (weak, nonatomic) IBOutlet UIImageView *showImageView;
 
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *trailingConstrainRemaining;
@@ -47,6 +47,22 @@
 }
 
 #pragma mark -
+#pragma mark Setters
+
+- (void)setTitle:(NSString *)title {
+    self.showTitle.text = title;
+}
+
+- (void)setDescription:(NSString *)description {
+    self.showDescription.text = description;
+}
+
+- (void)setShowImage:(UIImage *)showImage {
+    
+    self.showImageView.image = showImage;
+}
+
+#pragma mark -
 #pragma mark - Public Methods
 
 - (void) redrawShows{
@@ -72,12 +88,9 @@
 }
 
 - (void)setShowImage
-{
-    UIImage *image = [UIImage imageNamed:@"Best-script"];
-    self.showImage.image = image;
-    
-    self.showImage.layer.cornerRadius = self.showImage.frame.size.width/2;
-    self.showImage.clipsToBounds = YES;
+{    
+    self.showImageView.layer.cornerRadius = self.showImageView.frame.size.width/2;
+    self.showImageView.clipsToBounds = YES;
 }
 
 - (void)setPortraitSettings {

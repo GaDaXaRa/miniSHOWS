@@ -10,11 +10,12 @@
 #import "TableViewController.h"
 
 @interface ShowDetailViewController ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *showImageView;
 @property (weak, nonatomic) IBOutlet UITextView *showSummaryView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstrainSummary;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingConstrainSummary;
-@property (weak, nonatomic) IBOutlet UIToolbar *showToolbar;
+@property (weak, nonatomic) IBOutlet UIView *showToolbar;
 
 @end
 
@@ -39,6 +40,12 @@
     } else {
         [self setLandscapeConstrains];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.showImageView.image = self.showImage;
+    self.showSummaryView.text = self.showSummary;
 }
 
 - (void)viewDidLayoutSubviews {
