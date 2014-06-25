@@ -11,6 +11,7 @@
 #import "ShowDetailViewController.h"
 #import "ShowTableViewCell.h"
 #import "TVShow.h"
+#import "ShowProvider.h"
 
 static NSString *const showsUrl = @"";
 
@@ -79,38 +80,14 @@ static NSString *const showsUrl = @"";
 #pragma mark Getting data
 
 - (void)loadData {
-    NSDictionary *JSONDictionary = [self retrieveData];
-    NSMutableArray *loadArray = [[NSMutableArray alloc] init];
-    NSMutableArray *loadBannerArray = [[NSMutableArray alloc] init];
-    for (NSDictionary *showDictionary in [JSONDictionary valueForKey:@"shows"]) {
-        TVShow *show = [TVShow tvShowWithId:[showDictionary valueForKey:@"id"]
-                                       Name:[showDictionary valueForKey:@"title"]
-                                    Summary:[showDictionary valueForKey:@"description"]
-                                  PosterUrl:[showDictionary valueForKey:@"posterURL"]
-                               AndBannerUrl:[showDictionary valueForKey:@"bannerURL"]];
-        [loadArray addObject:show];
-        [loadBannerArray addObject:[self imageFromUrl:show.bannerImage]];
-    }
-    
-    self.showsArray = loadArray.copy;
-    self.bannerArrayOfUIIMage = loadBannerArray.copy;
-}
-
-- (NSDictionary *)retrieveData {
-    NSURL *url = [NSURL URLWithString:@"http://ironhack4thweek.s3.amazonaws.com/shows.json"];
-    NSData *showsData = [NSData dataWithContentsOfURL:url];
-    
-    NSError *error = nil;
-    
-    NSDictionary *JSONDictionary = [NSJSONSerialization JSONObjectWithData:showsData options:NSJSONReadingMutableContainers error:&error];
-    
-    if (error) {
-        NSLog(@"💀: %@", error);
-        return nil;
-    }
-    
-    return JSONDictionary;
-    
+    ShowProvider *provider = [[ShowProvider alloc] init];
+    @weakify(self);
+    [provider getAllShowsWithSuccessBlock:^(id showsArray) {
+        @strongify(self);
+        self.showsArray = showsArray;
+        [self buildBannersArray];
+        [self.tableView reloadData];
+    } errorBlock:nil];
 }
 
 #pragma mark -
@@ -165,6 +142,14 @@ static NSString *const showsUrl = @"";
 
 #pragma mark -
 #pragma mark Helping methods
+
+- (void)buildBannersArray {
+    NSMutableArray *loadBannerArray = [[NSMutableArray alloc] init];
+    for (TVShow *show in self.showsArray) {
+        [loadBannerArray addObject:[self imageFromUrl:show.bannerImage]];
+    }
+    self.bannerArrayOfUIIMage = loadBannerArray.copy;
+}
 
 - (UIImage *)imageFromUrl:(NSString *)imageUrl {
     NSURL *url = [NSURL URLWithString:imageUrl];
