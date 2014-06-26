@@ -54,7 +54,9 @@
         }];
         while (!finished) {
             //Back here in 1 millisecond
-            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.001]];
+            @autoreleasepool {
+                [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.001]];
+            }            
         }
     }];
     
