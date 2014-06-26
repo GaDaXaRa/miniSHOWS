@@ -20,9 +20,6 @@ static NSString *const plistFile = @"showImages.plist";
 
 @implementation ShowImageCacheManager
 
-#pragma mark -
-#pragma mark Singleton factory
-
 - (instancetype)init
 {
     self = [super init];
@@ -31,6 +28,9 @@ static NSString *const plistFile = @"showImages.plist";
     }
     return self;
 }
+
+#pragma mark -
+#pragma mark Singleton factory
 
 + (instancetype)sharedCacheManager {
     static dispatch_once_t onceToken;
@@ -100,6 +100,9 @@ static NSString *const plistFile = @"showImages.plist";
     
     self.cacheDictionary = auxDictionary.copy;
 }
+
+#pragma mark -
+#pragma mark Helping methods
 
 - (void)saveDictionary {
     [self.cacheDictionary writeToFile:[self.imagesPath stringByAppendingPathComponent:plistFile] atomically:YES];
