@@ -41,7 +41,7 @@
     } else {
         dispatch_async(self.dispatchQueue, ^{
             UIImage *image = [self imageFromUrl:url];
-            [[ShowImageCacheManager sharedCacheManager] seTImage:image forKey:url];
+            [[ShowImageCacheManager sharedCacheManager] setImage:image forKey:url];
             completion(image);
         });
     }

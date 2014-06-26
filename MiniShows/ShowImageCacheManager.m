@@ -70,7 +70,7 @@ static NSString *const plistFile = @"showImages.plist";
     return nil;
 }
 
-- (void)seTImage:(UIImage *)image forKey:(NSString *)key {    
+- (void)setImage:(UIImage *)image forKey:(NSString *)key {    
     NSString *filePath = [self.imagesPath stringByAppendingPathComponent:[[NSUUID UUID] UUIDString]];
     NSFileManager *manager = [NSFileManager defaultManager];
     NSData *imageData = UIImageJPEGRepresentation(image, 0.7);;
