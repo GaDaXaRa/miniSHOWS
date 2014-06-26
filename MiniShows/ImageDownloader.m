@@ -35,11 +35,16 @@
 }
 
 - (void)imageFromUrl:(NSString *)url completion:(void (^)(UIImage *image))completion {
-    dispatch_async(self.dispatchQueue, ^{
-        UIImage *image = [self imageFromUrl:url];
-        
+    UIImage *image = [[ShowImageCacheManager sharedCacheManager] imageByKey:url];
+    if (image) {
         completion(image);
-    });
+    } else {
+        dispatch_async(self.dispatchQueue, ^{
+            UIImage *image = [self imageFromUrl:url];
+            [[ShowImageCacheManager sharedCacheManager] seTImage:image forKey:url];
+            completion(image);
+        });
+    }
 }
 
 - (UIImage *)imageFromUrl:(NSString *)imageUrl {

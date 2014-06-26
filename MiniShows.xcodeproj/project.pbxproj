@@ -31,6 +31,7 @@
 		3FE98054195B2C510085D5AA /* ReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE98053195B2C510085D5AA /* ReachabilityManager.m */; };
 		3FE98058195C11C50085D5AA /* UIImageView+ImageWithUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE98057195C11C50085D5AA /* UIImageView+ImageWithUrl.m */; };
 		3FE9805B195C2ADB0085D5AA /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9805A195C2ADB0085D5AA /* ImageDownloader.m */; };
+		3FE9805E195C30560085D5AA /* ShowImageCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9805D195C30560085D5AA /* ShowImageCacheManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		3FE98057195C11C50085D5AA /* UIImageView+ImageWithUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ImageWithUrl.m"; sourceTree = "<group>"; };
 		3FE98059195C2ADB0085D5AA /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
 		3FE9805A195C2ADB0085D5AA /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
+		3FE9805C195C30560085D5AA /* ShowImageCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowImageCacheManager.h; sourceTree = "<group>"; };
+		3FE9805D195C30560085D5AA /* ShowImageCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowImageCacheManager.m; sourceTree = "<group>"; };
 		7B6265634E3D4E80B2C5907D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E9E4736BA94B348946DB34 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -235,6 +238,8 @@
 				3FE98053195B2C510085D5AA /* ReachabilityManager.m */,
 				3FE98059195C2ADB0085D5AA /* ImageDownloader.h */,
 				3FE9805A195C2ADB0085D5AA /* ImageDownloader.m */,
+				3FE9805C195C30560085D5AA /* ShowImageCacheManager.h */,
+				3FE9805D195C30560085D5AA /* ShowImageCacheManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -401,6 +406,7 @@
 			files = (
 				3F2477A21951CE5D006787A5 /* AppDelegate.m in Sources */,
 				3F24779E1951CE5D006787A5 /* main.m in Sources */,
+				3FE9805E195C30560085D5AA /* ShowImageCacheManager.m in Sources */,
 				3F2477C81951CE8E006787A5 /* TableViewController.m in Sources */,
 				3F2477CE1951D750006787A5 /* ShowDetailViewController.m in Sources */,
 				3FE98054195B2C510085D5AA /* ReachabilityManager.m in Sources */,

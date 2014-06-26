@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ShowImageCacheManager.h"
 
 @interface ImageDownloader : NSObject
 
