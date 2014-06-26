@@ -20,6 +20,28 @@ static NSString *const plistFile = @"showImages.plist";
 
 @implementation ShowImageCacheManager
 
+#pragma mark -
+#pragma mark Singleton factory
+
++ (instancetype)sharedCacheManager {
+    static dispatch_once_t onceToken;
+    static ShowImageCacheManager *instance;
+    dispatch_once(&onceToken, ^{
+        instance = [[ShowImageCacheManager alloc] init];
+        NSFileManager *manager = [NSFileManager defaultManager];
+        NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *finalPath = [cachePath stringByAppendingPathComponent:imageCachePath];
+        if (![manager fileExistsAtPath:finalPath]) {
+            [manager createDirectoryAtPath:finalPath withIntermediateDirectories:NO attributes:nil error:nil];
+        }
+    });
+    
+    return  instance;
+}
+
+#pragma mark -
+#pragma mark Lazy getting
+
 - (NSString *)imagesPath {
     if(!_imagesPath) {
         NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -41,21 +63,8 @@ static NSString *const plistFile = @"showImages.plist";
     return _cacheDictionary;
 }
 
-+ (instancetype)sharedCacheManager {
-    static dispatch_once_t onceToken;
-    static ShowImageCacheManager *instance;
-    dispatch_once(&onceToken, ^{
-        instance = [[ShowImageCacheManager alloc] init];
-        NSFileManager *manager = [NSFileManager defaultManager];
-        NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        NSString *finalPath = [cachePath stringByAppendingPathComponent:imageCachePath];
-        if (![manager fileExistsAtPath:finalPath]) {
-            [manager createDirectoryAtPath:finalPath withIntermediateDirectories:NO attributes:nil error:nil];
-        }
-    });
-    
-    return  instance;
-}
+#pragma mark -
+#pragma mark Cache methods
 
 - (UIImage *)imageByKey:(NSString *)key {
     NSString *imageFile = [self.cacheDictionary objectForKey:key];

@@ -17,6 +17,9 @@
 
 @implementation ShowProvider
 
+#pragma mark -
+#pragma mark Lazy getting
+
 - (dispatch_queue_t)dispatchQueue {
     if (!_dispatchQueue) {
         _dispatchQueue = dispatch_queue_create("com.minishows.showprovider.queue", DISPATCH_QUEUE_SERIAL);
@@ -24,6 +27,9 @@
     
     return _dispatchQueue;
 }
+
+#pragma mark -
+#pragma mark Instance methods
 
 - (void)getAllShowsWithSuccessBlock:(RequestManagerSuccess)successBlock errorBlock:(RequestManagerError)errorBlock {
     NSMutableArray *showsArray = [[NSMutableArray alloc] init];

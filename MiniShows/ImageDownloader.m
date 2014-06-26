@@ -16,13 +16,8 @@
 
 @implementation ImageDownloader
 
-- (dispatch_queue_t)dispatchQueue {
-    if (!_dispatchQueue) {
-        _dispatchQueue = dispatch_queue_create("com.minishows.imagedownloader.queue", DISPATCH_QUEUE_CONCURRENT);
-    }
-    
-    return _dispatchQueue;
-}
+#pragma mark -
+#pragma mark Singleton factory
 
 + (instancetype)sharedImageDownloader {
     static dispatch_once_t onceToken;
@@ -33,6 +28,20 @@
     
     return instance;
 }
+
+#pragma mark -
+#pragma mark Lazy getting
+
+- (dispatch_queue_t)dispatchQueue {
+    if (!_dispatchQueue) {
+        _dispatchQueue = dispatch_queue_create("com.minishows.imagedownloader.queue", DISPATCH_QUEUE_CONCURRENT);
+    }
+    
+    return _dispatchQueue;
+}
+
+#pragma mark -
+#pragma mark Instance methods
 
 - (void)imageFromUrl:(NSString *)url completion:(void (^)(UIImage *image))completion {
     UIImage *image = [[ShowImageCacheManager sharedCacheManager] imageByKey:url];
@@ -46,6 +55,9 @@
         });
     }
 }
+
+#pragma mark -
+#pragma mark Helping methods
 
 - (UIImage *)imageFromUrl:(NSString *)imageUrl {
     NSURL *url = [NSURL URLWithString:imageUrl];
