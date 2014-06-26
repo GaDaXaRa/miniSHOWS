@@ -34,18 +34,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.showImageView setImageWithUrl:self.showImageUrl completion:^(BOOL finish) {
+        
+    }];
+    self.showSummaryView.text = self.showSummary;
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     if (orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationUnknown) {
         [self setPortraitConstrains];
     } else {
         [self setLandscapeConstrains];
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.showImageView.image = self.showImage;
-    self.showSummaryView.text = self.showSummary;
 }
 
 - (void)viewDidLayoutSubviews {

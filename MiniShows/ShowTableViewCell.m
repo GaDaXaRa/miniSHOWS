@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *showTitle;
 @property (weak, nonatomic) IBOutlet UILabel *showDescription;
 @property (weak, nonatomic) IBOutlet UILabel *episodesRemaining;
-@property (weak, nonatomic) IBOutlet UIImageView *showImageView;
 
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *trailingConstrainRemaining;
@@ -127,8 +126,8 @@
 }
 
 - (void)setLandscapeFonts {
-    self.showTitle.font = [UIFont systemFontOfSize:32];
-    self.showDescription.font = [UIFont systemFontOfSize:24];
+    self.showTitle.font = [UIFont systemFontOfSize:24];
+    self.showDescription.font = [UIFont systemFontOfSize:18];
 }
 
 - (void)setPortraitConstrains {
@@ -137,7 +136,7 @@
 }
 
 - (void)setLandscapeConstrains {
-    self.bottomConstrainRemaining.constant = self.bounds.size.height / 2 - 7;
+    self.bottomConstrainRemaining.constant = self.bounds.size.height / 2 - 25;
     self.trailingConstrainRemaining.constant = 0;
 }
 

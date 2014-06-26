@@ -9,23 +9,40 @@
 #import "ShowProvider.h"
 #import "TVShow.h"
 
+@interface ShowProvider ()
+
+@property (nonatomic)dispatch_queue_t dispatchQueue;
+
+@end
+
 @implementation ShowProvider
+
+- (dispatch_queue_t)dispatchQueue {
+    if (!_dispatchQueue) {
+        _dispatchQueue = dispatch_queue_create("com.minishows.showprovider.queue", DISPATCH_QUEUE_SERIAL);
+    }
+    
+    return _dispatchQueue;
+}
 
 - (void)getAllShowsWithSuccessBlock:(RequestManagerSuccess)successBlock errorBlock:(RequestManagerError)errorBlock {
     NSMutableArray *showsArray = [[NSMutableArray alloc] init];
     RequestManager *manager = [[RequestManager alloc] init];
     [manager GET:@"shows.json" parameters:nil successBlock:^(id responseObject) {
-        for (NSDictionary *showDictionary in [responseObject valueForKey:@"shows"]) {
-            TVShow *show = [TVShow tvShowWithId:[showDictionary valueForKey:@"id"]
-                                           Name:[showDictionary valueForKey:@"title"]
-                                        Summary:[showDictionary valueForKey:@"description"]
-                                      PosterUrl:[showDictionary valueForKey:@"posterURL"]
-                                   AndBannerUrl:[showDictionary valueForKey:@"bannerURL"]];
-            [showsArray addObject:show];
-        }
-        successBlock(showsArray);
+        dispatch_async(self.dispatchQueue, ^{
+            for (NSDictionary *showDictionary in [responseObject valueForKey:@"shows"]) {
+                TVShow *show = [TVShow tvShowWithId:[showDictionary valueForKey:@"id"]
+                                               Name:[showDictionary valueForKey:@"title"]
+                                            Summary:[showDictionary valueForKey:@"description"]
+                                          PosterUrl:[showDictionary valueForKey:@"posterURL"]
+                                       AndBannerUrl:[showDictionary valueForKey:@"bannerURL"]];
+                [showsArray addObject:show];
+            }
+            successBlock(showsArray);
+        });
     } errorBlock:^(NSError *error) {
         NSLog(@"%@", error);
+        errorBlock(error);
     }];
 }
 

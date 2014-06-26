@@ -21,7 +21,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="suits_small" translatesAutoresizingMaskIntoConstraints="NO" id="7HD-OV-aKG">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7HD-OV-aKG">
                                             <rect key="frame" x="15" y="11" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -31,7 +31,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Really Reaaaally laaaaaarge title for a tv show" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2A-jj-kkg">
-                                            <rect key="frame" x="128" y="20" width="192" height="24"/>
+                                            <rect key="frame" x="128" y="20" width="187" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,7 +59,7 @@
                                         <constraint firstAttribute="trailing" secondItem="yC3-8s-eKh" secondAttribute="trailing" id="3K7-dI-DJN"/>
                                         <constraint firstAttribute="bottom" secondItem="epQ-SR-lbg" secondAttribute="bottom" constant="8" id="7pI-uL-K4G"/>
                                         <constraint firstAttribute="centerY" secondItem="7HD-OV-aKG" secondAttribute="centerY" constant="-0.5" id="Eu3-d8-GxK"/>
-                                        <constraint firstAttribute="trailing" secondItem="U2A-jj-kkg" secondAttribute="trailing" id="F0x-Lv-EXV"/>
+                                        <constraint firstAttribute="trailing" secondItem="U2A-jj-kkg" secondAttribute="trailing" constant="5" id="F0x-Lv-EXV"/>
                                         <constraint firstItem="U2A-jj-kkg" firstAttribute="leading" secondItem="7HD-OV-aKG" secondAttribute="trailing" constant="13" id="X9f-Mv-U10"/>
                                         <constraint firstItem="7HD-OV-aKG" firstAttribute="leading" secondItem="9JQ-bq-p0y" secondAttribute="leading" constant="15" id="XA4-Rk-20h"/>
                                         <constraint firstItem="U2A-jj-kkg" firstAttribute="top" secondItem="9JQ-bq-p0y" secondAttribute="top" constant="20" id="brR-Gz-nGJ"/>
@@ -119,7 +119,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="suits" translatesAutoresizingMaskIntoConstraints="NO" id="nxc-HG-sEF">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nxc-HG-sEF">
                                 <rect key="frame" x="0.0" y="63" width="320" height="210"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -318,8 +318,6 @@
         <image name="infoButton" width="53" height="53"/>
         <image name="seenButton" width="61" height="51"/>
         <image name="shareButton" width="45" height="54"/>
-        <image name="suits" width="590" height="295"/>
-        <image name="suits_small" width="403" height="504"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -327,6 +325,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kp4-52-s9y"/>
+        <segue reference="v0k-RY-Xhu"/>
     </inferredMetricsTieBreakers>
 </document>

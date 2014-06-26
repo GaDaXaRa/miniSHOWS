@@ -12,6 +12,7 @@
 #import "ShowTableViewCell.h"
 #import "TVShow.h"
 #import "ShowProvider.h"
+#import "ReachabilityManager.h"
 
 static NSString *const showsUrl = @"";
 
@@ -19,6 +20,7 @@ static NSString *const showsUrl = @"";
 
 @property (strong, nonatomic) NSArray* showsArray;
 @property (strong, nonatomic) NSArray* bannerArrayOfUIIMage;
+@property (strong, nonatomic) NSDictionary* bannersDictionary;
 
 @end
 
@@ -38,6 +40,7 @@ static NSString *const showsUrl = @"";
     [super viewDidLoad];
     self.tableView.contentInset = UIEdgeInsetsMake(2.5, 0, 2.5, 0);
     [self loadData];
+    [self subscribeReachability];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -82,12 +85,18 @@ static NSString *const showsUrl = @"";
 - (void)loadData {
     ShowProvider *provider = [[ShowProvider alloc] init];
     @weakify(self);
+    
     [provider getAllShowsWithSuccessBlock:^(id showsArray) {
         @strongify(self);
         self.showsArray = showsArray;
-        [self buildBannersArray];
-        [self.tableView reloadData];
-    } errorBlock:nil];
+        //        [self buildBannersArray];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            @strongify(self);
+            [self.tableView reloadData];
+        });
+    } errorBlock:^(NSError *error) {
+        [self showErrorAlert:error.localizedDescription];
+    }];
 }
 
 #pragma mark -
@@ -101,7 +110,7 @@ static NSString *const showsUrl = @"";
         TVShow *show = [self.showsArray objectAtIndex:indexPath.row];
         
         ShowDetailViewController *controller = segue.destinationViewController;
-        controller.showImage = [self imageFromUrl:show.posterImage];
+        controller.showImageUrl = show.posterImage;
         controller.showSummary = show.summary;
         controller.title = cell.title;
     }
@@ -134,7 +143,10 @@ static NSString *const showsUrl = @"";
     
     cell.title = show.name;
     cell.description = show.summary;
-    cell.showImage = [self.bannerArrayOfUIIMage objectAtIndex:indexPath.row];
+    [cell.showImageView setImageWithUrl:show.bannerImage completion:^(BOOL finish) {
+        
+    }];
+    
     [cell redrawShows];
     
     return cell;
@@ -143,19 +155,29 @@ static NSString *const showsUrl = @"";
 #pragma mark -
 #pragma mark Helping methods
 
-- (void)buildBannersArray {
-    NSMutableArray *loadBannerArray = [[NSMutableArray alloc] init];
-    for (TVShow *show in self.showsArray) {
-        [loadBannerArray addObject:[self imageFromUrl:show.bannerImage]];
-    }
-    self.bannerArrayOfUIIMage = loadBannerArray.copy;
+- (void) showErrorAlert:(NSString *)error {
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Network Error" message:error delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+    [errorAlert show];
 }
 
-- (UIImage *)imageFromUrl:(NSString *)imageUrl {
-    NSURL *url = [NSURL URLWithString:imageUrl];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    return [UIImage imageWithData:data];
+- (void)subscribeReachability {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionLost:) name:ReachabilityServiceChangeNotConnection object:nil];
 }
+
+- (void)connectionLost:(NSNotification *)notification {
+    [self showErrorAlert:@"Connection Lost"];
+}
+
+//- (void)buildBannersArray {
+//    NSMutableArray *loadBannerArray = [[NSMutableArray alloc] init];
+//    for (TVShow *show in self.showsArray) {
+//        [loadBannerArray addObject:[self imageFromUrl:show.bannerImage]];
+//    }
+//    self.bannerArrayOfUIIMage = loadBannerArray.copy;
+//}
+
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];

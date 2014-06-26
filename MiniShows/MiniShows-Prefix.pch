@@ -15,4 +15,5 @@
     #import <Foundation/Foundation.h>
     #import <libextobjc/metamacros.h>
     #import <libextobjc/EXTScope.h>
+    #import "UIImageView+ImageWithUrl.h"
 #endif

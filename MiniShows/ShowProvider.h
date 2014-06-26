@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RequestManager.h"
 
+
 @interface ShowProvider : NSObject
 
 - (void)getAllShowsWithSuccessBlock:(RequestManagerSuccess)successBlock errorBlock:(RequestManagerError)errorBlock;

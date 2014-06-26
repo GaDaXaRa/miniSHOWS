@@ -7,12 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "ReachabilityManager.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    ReachabilityManager *reachabilityManager = [[ReachabilityManager alloc] init];
     return YES;
 }
 							

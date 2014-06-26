@@ -28,6 +28,9 @@
 		3FE97FE41958286F0085D5AA /* TVShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE97FE31958286F0085D5AA /* TVShow.m */; };
 		3FE98049195B0B740085D5AA /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE98048195B0B740085D5AA /* RequestManager.m */; };
 		3FE98051195B12350085D5AA /* ShowProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE98050195B12350085D5AA /* ShowProvider.m */; };
+		3FE98054195B2C510085D5AA /* ReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE98053195B2C510085D5AA /* ReachabilityManager.m */; };
+		3FE98058195C11C50085D5AA /* UIImageView+ImageWithUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE98057195C11C50085D5AA /* UIImageView+ImageWithUrl.m */; };
+		3FE9805B195C2ADB0085D5AA /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9805A195C2ADB0085D5AA /* ImageDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,12 @@
 		3FE98048195B0B740085D5AA /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
 		3FE9804F195B12350085D5AA /* ShowProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowProvider.h; sourceTree = "<group>"; };
 		3FE98050195B12350085D5AA /* ShowProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowProvider.m; sourceTree = "<group>"; };
+		3FE98052195B2C510085D5AA /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
+		3FE98053195B2C510085D5AA /* ReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachabilityManager.m; sourceTree = "<group>"; };
+		3FE98056195C11C50085D5AA /* UIImageView+ImageWithUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ImageWithUrl.h"; sourceTree = "<group>"; };
+		3FE98057195C11C50085D5AA /* UIImageView+ImageWithUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ImageWithUrl.m"; sourceTree = "<group>"; };
+		3FE98059195C2ADB0085D5AA /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
+		3FE9805A195C2ADB0085D5AA /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 		7B6265634E3D4E80B2C5907D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E9E4736BA94B348946DB34 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,6 +209,7 @@
 		3FE9804A195B100B0085D5AA /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3FE98055195C11A60085D5AA /* Categories */,
 				3FE9804E195B121A0085D5AA /* Providers */,
 				3FE9804C195B10190085D5AA /* Managers */,
 				3FE9804B195B10120085D5AA /* Entities */,
@@ -221,6 +231,10 @@
 			children = (
 				3FE98047195B0B740085D5AA /* RequestManager.h */,
 				3FE98048195B0B740085D5AA /* RequestManager.m */,
+				3FE98052195B2C510085D5AA /* ReachabilityManager.h */,
+				3FE98053195B2C510085D5AA /* ReachabilityManager.m */,
+				3FE98059195C2ADB0085D5AA /* ImageDownloader.h */,
+				3FE9805A195C2ADB0085D5AA /* ImageDownloader.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -242,6 +256,15 @@
 				3FE98050195B12350085D5AA /* ShowProvider.m */,
 			);
 			name = Providers;
+			sourceTree = "<group>";
+		};
+		3FE98055195C11A60085D5AA /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				3FE98056195C11C50085D5AA /* UIImageView+ImageWithUrl.h */,
+				3FE98057195C11C50085D5AA /* UIImageView+ImageWithUrl.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,11 +403,14 @@
 				3F24779E1951CE5D006787A5 /* main.m in Sources */,
 				3F2477C81951CE8E006787A5 /* TableViewController.m in Sources */,
 				3F2477CE1951D750006787A5 /* ShowDetailViewController.m in Sources */,
+				3FE98054195B2C510085D5AA /* ReachabilityManager.m in Sources */,
 				3F2477CB1951CEBE006787A5 /* ShowTableViewCell.m in Sources */,
+				3FE9805B195C2ADB0085D5AA /* ImageDownloader.m in Sources */,
 				3FE97FE41958286F0085D5AA /* TVShow.m in Sources */,
 				3FD362921951F0C1009B0BD6 /* SettingsViewController.m in Sources */,
 				3FE98051195B12350085D5AA /* ShowProvider.m in Sources */,
 				3FE98049195B0B740085D5AA /* RequestManager.m in Sources */,
+				3FE98058195C11C50085D5AA /* UIImageView+ImageWithUrl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
