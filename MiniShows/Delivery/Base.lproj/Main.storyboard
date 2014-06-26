@@ -31,13 +31,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Really Reaaaally laaaaaarge title for a tv show" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2A-jj-kkg">
-                                            <rect key="frame" x="128" y="20" width="187" height="24"/>
+                                            <rect key="frame" x="128" y="20" width="182" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yC3-8s-eKh">
-                                            <rect key="frame" x="128" y="39" width="192" height="20"/>
+                                            <rect key="frame" x="128" y="39" width="182" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,10 +56,10 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="yC3-8s-eKh" secondAttribute="trailing" id="3K7-dI-DJN"/>
+                                        <constraint firstAttribute="trailing" secondItem="yC3-8s-eKh" secondAttribute="trailing" constant="10" id="3K7-dI-DJN"/>
                                         <constraint firstAttribute="bottom" secondItem="epQ-SR-lbg" secondAttribute="bottom" constant="8" id="7pI-uL-K4G"/>
                                         <constraint firstAttribute="centerY" secondItem="7HD-OV-aKG" secondAttribute="centerY" constant="-0.5" id="Eu3-d8-GxK"/>
-                                        <constraint firstAttribute="trailing" secondItem="U2A-jj-kkg" secondAttribute="trailing" constant="5" id="F0x-Lv-EXV"/>
+                                        <constraint firstAttribute="trailing" secondItem="U2A-jj-kkg" secondAttribute="trailing" constant="10" id="F0x-Lv-EXV"/>
                                         <constraint firstItem="U2A-jj-kkg" firstAttribute="leading" secondItem="7HD-OV-aKG" secondAttribute="trailing" constant="13" id="X9f-Mv-U10"/>
                                         <constraint firstItem="7HD-OV-aKG" firstAttribute="leading" secondItem="9JQ-bq-p0y" secondAttribute="leading" constant="15" id="XA4-Rk-20h"/>
                                         <constraint firstItem="U2A-jj-kkg" firstAttribute="top" secondItem="9JQ-bq-p0y" secondAttribute="top" constant="20" id="brR-Gz-nGJ"/>
@@ -325,6 +325,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="v0k-RY-Xhu"/>
+        <segue reference="kp4-52-s9y"/>
     </inferredMetricsTieBreakers>
 </document>
