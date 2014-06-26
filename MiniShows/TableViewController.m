@@ -14,8 +14,6 @@
 #import "ShowProvider.h"
 #import "ReachabilityManager.h"
 
-static NSString *const showsUrl = @"";
-
 @interface TableViewController ()
 
 @property (strong, nonatomic) NSArray* showsArray;
@@ -61,7 +59,7 @@ static NSString *const showsUrl = @"";
 }
 
 #pragma mark -
-#pragma mark Lazy get
+#pragma mark Lazy getting
 
 - (NSArray *)showsArray {
     if (!_showsArray) {
@@ -168,16 +166,6 @@ static NSString *const showsUrl = @"";
 - (void)connectionLost:(NSNotification *)notification {
     [self showErrorAlert:@"Connection Lost"];
 }
-
-//- (void)buildBannersArray {
-//    NSMutableArray *loadBannerArray = [[NSMutableArray alloc] init];
-//    for (TVShow *show in self.showsArray) {
-//        [loadBannerArray addObject:[self imageFromUrl:show.bannerImage]];
-//    }
-//    self.bannerArrayOfUIIMage = loadBannerArray.copy;
-//}
-
-
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];

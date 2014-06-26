@@ -23,6 +23,15 @@ static NSString *const plistFile = @"showImages.plist";
 #pragma mark -
 #pragma mark Singleton factory
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveDictionary) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    }
+    return self;
+}
+
 + (instancetype)sharedCacheManager {
     static dispatch_once_t onceToken;
     static ShowImageCacheManager *instance;
@@ -82,13 +91,17 @@ static NSString *const plistFile = @"showImages.plist";
 - (void)setImage:(UIImage *)image forKey:(NSString *)key {    
     NSString *filePath = [self.imagesPath stringByAppendingPathComponent:[[NSUUID UUID] UUIDString]];
     NSFileManager *manager = [NSFileManager defaultManager];
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.7);;
+    //Asuming jpeg images
+    NSData *imageData = UIImageJPEGRepresentation(image, 1);;
     [manager createFileAtPath:filePath contents:imageData attributes:nil];
     
     NSMutableDictionary *auxDictionary = self.cacheDictionary.mutableCopy;
     [auxDictionary setObject:filePath forKey:key];
     
     self.cacheDictionary = auxDictionary.copy;
+}
+
+- (void)saveDictionary {
     [self.cacheDictionary writeToFile:[self.imagesPath stringByAppendingPathComponent:plistFile] atomically:YES];
 }
 
