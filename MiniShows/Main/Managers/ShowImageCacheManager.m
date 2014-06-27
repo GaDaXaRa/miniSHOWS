@@ -15,6 +15,7 @@ static NSString *const plistFile = @"showImages.plist";
 
 @property (strong, nonatomic)NSDictionary *cacheDictionary;
 @property (strong, nonatomic)NSString *imagesPath;
+@property (strong, nonatomic)NSLock *readWriteLock;
 
 @end
 
@@ -51,6 +52,14 @@ static NSString *const plistFile = @"showImages.plist";
 #pragma mark -
 #pragma mark Lazy getting
 
+- (NSLock *)readWriteLock {
+    if (!_readWriteLock) {
+        _readWriteLock = [[NSLock alloc] init];
+    }
+    
+    return _readWriteLock;
+}
+
 - (NSString *)imagesPath {
     if(!_imagesPath) {
         NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -76,19 +85,23 @@ static NSString *const plistFile = @"showImages.plist";
 #pragma mark Cache methods
 
 - (UIImage *)imageByKey:(NSString *)key {
-    NSString *imageFile = [self.cacheDictionary objectForKey:key];
+    UIImage *image;
+    while(![self.readWriteLock tryLock]) {}
     
+    NSString *imageFile = [self.cacheDictionary objectForKey:key];    
     if (imageFile) {
         NSData *imageData = [NSData dataWithContentsOfFile:imageFile];
-        UIImage *image = [UIImage imageWithData:imageData];
-        
-        return image;
+        image = [UIImage imageWithData:imageData];
     }
     
-    return nil;
+    [self.readWriteLock unlock];
+    
+    return image;
 }
 
-- (void)setImage:(UIImage *)image forKey:(NSString *)key {    
+- (void)setImage:(UIImage *)image forKey:(NSString *)key {
+    while(![self.readWriteLock tryLock]) {}
+    
     NSString *filePath = [self.imagesPath stringByAppendingPathComponent:[[NSUUID UUID] UUIDString]];
     NSFileManager *manager = [NSFileManager defaultManager];
     //Asuming jpeg images
@@ -99,6 +112,9 @@ static NSString *const plistFile = @"showImages.plist";
     [auxDictionary setObject:filePath forKey:key];
     
     self.cacheDictionary = auxDictionary.copy;
+    
+    [self.readWriteLock unlock];
+    
 }
 
 #pragma mark -
